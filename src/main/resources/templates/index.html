@@ -7,9 +7,10 @@
   <title>入力画面</title>
 </head>
 <body>
-<form method="POST" action="output.html" th:action="@{output}">
+<form method="POST" action="output.html" th:action="@{output}" th:object="${shainForm}">
   <p>社員Noを入力してください（3桁の半角数字）</p>
-  <input type="text" name="number">
+  <input type="text" name="number" th:field="${shainForm.number}">
+  <p style="color: red;" th:errors="${shainForm.number}" class="error">社員Noからです</p>
   <input type="submit" value="送信">
 </form>
 </body>
