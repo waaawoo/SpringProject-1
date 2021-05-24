@@ -34,7 +34,7 @@ public class ShainController {
 		String number = shainForm.getNumber();
 		
 //		サービス層から社員を検索
-		ShainServise shainService = new ShainServiceimpl();
+		ShainServise shainService = new ShainServiseInpl();
 		String name = shainService.findByNo(number);
 //		String name = "コントロ";
 		model.addAttribute("number", number);
