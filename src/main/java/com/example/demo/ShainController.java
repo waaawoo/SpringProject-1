@@ -32,7 +32,11 @@ public class ShainController {
 		
 //		社員フォームからデータを取得する
 		String number = shainForm.getNumber();
-		String name = "コントロ";
+		
+//		サービス層から社員を検索
+		ShainServise shainService = new ShainServiceimpl();
+		String name = shainService.findByNo(number);
+//		String name = "コントロ";
 		model.addAttribute("number", number);
 		model.addAttribute("name", name);
 		return "output.html";
