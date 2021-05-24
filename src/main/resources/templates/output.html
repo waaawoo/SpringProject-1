@@ -7,8 +7,8 @@
   <title>出力画面</title>
 </head>
 <body>
-  <p>社員No：<span th:text="$number">100</span></p>
-  <p>社員名：<span th:text="$name">ダミー太郎</span></p>
+  <p>社員No：<span th:text="${number}">100</span></p>
+  <p>社員名：<span th:text="${name}">ダミー太郎</span></p>
   <a href="index.html" th:href="@{input}">入力画面へ</a>
 </body>
 </html>
