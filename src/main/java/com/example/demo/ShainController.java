@@ -10,6 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ShainController {
 	
+//	ControllerのBean化
+	private final ShainServise shainServise;
+//	shainServiseのDI化
+	public ShainController(ShainServise shainServise) {
+		this.shainServise = shainServise;
+	}
+	
+	
 //	モデルの初期化　リクエストマッピングの前に記述する
 	@ModelAttribute
 	public ShainForm setUpForm() {
@@ -34,8 +42,10 @@ public class ShainController {
 		String number = shainForm.getNumber();
 		
 //		サービス層から社員を検索
-		ShainServise shainService = new ShainServiseInpl();
-		String name = shainService.findByNo(number);
+//		ShainServise shainService = new ShainServiseInpl();
+		
+//		DI化した変数からデータを取得するようにする
+		String name = shainServise.findByNo(number);
 //		String name = "コントロ";
 		model.addAttribute("number", number);
 		model.addAttribute("name", name);
